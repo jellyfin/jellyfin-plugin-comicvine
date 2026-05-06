@@ -2,7 +2,7 @@
 name: "Comic Vine"
 guid: "309ec7e5-4981-4e8c-992f-8e4dde9591e0"
 version: 1
-targetAbi: "10.11.0.0"
+targetAbi: "10.12.0.0"
 framework: "net9.0"
 owner: "jellyfin"
 overview: "Comic Vine Metadata Provider"
