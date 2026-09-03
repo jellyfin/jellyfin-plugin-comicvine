@@ -1,15 +1,19 @@
 ---
 name: "Comic Vine"
 guid: "309ec7e5-4981-4e8c-992f-8e4dde9591e0"
-version: 1
-targetAbi: "10.11.0.0"
+version: 2
+targetAbi: "12.0.0.0"
 framework: "net9.0"
 owner: "jellyfin"
 overview: "Comic Vine Metadata Provider"
 description: >
   Pulls comic metadata and cover images from Comic Vine.
+
 category: "Books"
 artifacts:
   - "Jellyfin.Plugin.ComicVine.dll"
 changelog: |-
-  Initial Release
+  - Update dependency coverlet.collector to v10 (#21) [@renovate[bot]](https://github.com/apps/renovate), @crobibero
+  - Update dependency coverlet.collector to 6.0.4 (#18) [@renovate[bot]](https://github.com/apps/renovate), @crobibero
+  - Update dependency NSubstitute to v6 (#23) [@renovate[bot]](https://github.com/apps/renovate), @crobibero
+  - Update dependency xunit to 2.9.3 (#15) [@renovate[bot]](https://github.com/apps/renovate), @crobibero
