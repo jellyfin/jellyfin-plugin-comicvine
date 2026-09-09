@@ -16,6 +16,19 @@
                         <input id="comicVineApiKey" name="ComicVineApiKey" type="text" is="emby-input" required />
                         <div class="fieldDescription"> Comic Vine API Key. Get one <a href="https://comicvine.gamespot.com/api/" target="_blank">here</a>.</div>
                     </div>
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="issueNameFormatOverride">Issue Name Format Override</label>
+                        <input id="issueNameFormatOverride" name="IssueNameFormatOverride" type="text" is="emby-input" />
+                        <div class="fieldDescription"> An override for issue name formats. Leave blank for default behavior.</div>
+                        <div class="fieldDescription"> Available Placeholders:</div>
+                        <ul>
+                            <li class="fieldDescription">{Name} - Name of the issue. Blank if no name exists.</li>
+                            <li class="fieldDescription">{Volume.Name} - The volume name of the comic. Blank if no name exists.</li>
+                            <li class="fieldDescription">{Id} - The comic vine ID of the comic.</li>
+                            <li class="fieldDescription">{IssueNumber} - The raw issue number of the comic. (Example: 1, 5, 10)</li>
+                            <li class="fieldDescription">{IssueNumberFormatted} - The formatted issue number of the comic. (Example: 001, 005, 010).</li>
+                        </ul>
+                    </div>
                     <div>
                         <button is="emby-button" type="submit" class="raised button-submit block emby-button">
                             <span>Save</span>
@@ -34,6 +47,7 @@
                     Dashboard.showLoadingMsg();
                     ApiClient.getPluginConfiguration(TemplateConfig.pluginUniqueId).then(function (config) {
                         document.querySelector('#comicVineApiKey').value = config.ComicVineApiKey;
+                        document.querySelector('#issueNameFormatOverride').value = config.IssueNameFormatOverride;
                         Dashboard.hideLoadingMsg();
                     });
                 });
@@ -43,6 +57,7 @@
                     Dashboard.showLoadingMsg();
                     ApiClient.getPluginConfiguration(TemplateConfig.pluginUniqueId).then(function (config) {
                         config.ComicVineApiKey = document.querySelector('#comicVineApiKey').value;
+                        config.IssueNameFormatOverride = document.querySelector('#issueNameFormatOverride').value;
                         ApiClient.updatePluginConfiguration(TemplateConfig.pluginUniqueId, config).then(function (result) {
                             Dashboard.processPluginConfigurationUpdateResult(result);
                         });
